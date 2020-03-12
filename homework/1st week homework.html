@@ -9,34 +9,92 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Nanum+Pen+Script&display=swap" rel="stylesheet">
     <title>Hello, world!</title>
     <style>
-  
+        body {
+            font-family: 'Nanum Pen Script', cursive;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
 
+        .wrap {
+            width: 500px;
+            margin: auto;
+        }
+
+        .price {
+            font-size: 15px;
+            margin-left: 10px
+        }
+
+        .middle {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
-    <div class="card">
-        <img src="http://post.phinf.naver.net/MjAxOTA0MjVfMTMz/MDAxNTU2MTYwNTEyNDQy._Aq-ua0JsNEzqq2zpXU2haP7PFUijQuX0Yq7bTtbby8g.o-a6V17SWbCwTQKmf6HGq3HQjmZhjYrg0IgYJ8zY4d0g.JPEG/Ig_3HUHxMQHT-Tma611zbB4RDbFo.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">에어팟을 팝니다</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="wrap">
+        <div class="card">
+            <img src="http://post.phinf.naver.net/MjAxOTA0MjVfMTMz/MDAxNTU2MTYwNTEyNDQy._Aq-ua0JsNEzqq2zpXU2haP7PFUijQuX0Yq7bTtbby8g.o-a6V17SWbCwTQKmf6HGq3HQjmZhjYrg0IgYJ8zY4d0g.JPEG/Ig_3HUHxMQHT-Tma611zbB4RDbFo.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">에어팟을 팝니다<span class="price">가격:150,000원/개</span></h5>
+                <p class="card-text">에어팟은 최고의 음질을 자랑하고, 줄 없는 세상을 구현합니다. 어서 빨리 시대에 뒤쳐지지말고 구매하세요.</p>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">주문자 이름</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">수량</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>수량을 선택하세요</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="middle">
+                    <a href="#" class="btn btn-primary">주문하기</a>
+                </div>
+            </div>
         </div>
-      </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    </div>
 </body>
 
 </html>
