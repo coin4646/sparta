@@ -56,7 +56,9 @@
         }
     </style>
     <script>
-
+        
+        $('#btn-posting-box').on('click', openclose);
+        
         function openclose() {
             if ($('#post-box').css('display') == 'block') {
                 $('#post-box').hide();
@@ -78,8 +80,7 @@
             <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
             <hr class="my-4">
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button" id="btn-posting-box"
-                    onclick="openclose()">포스팅박스 열기</a>
+                <a class="btn btn-primary btn-lg" href="#" role="button" id="btn-posting-box">포스팅박스 열기</a>
             </p>
         </div>
         <div class="form-post" id="post-box">
