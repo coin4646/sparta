@@ -33,16 +33,15 @@
         .middle {
             text-align: center;
         }
- 
+
         .name {
             font-size: 60px;
         }
 
-    
+
         .content {
-            font-size:  23px;
+            font-size: 23px;
         }
-        
     </style>
 </head>
 
@@ -52,7 +51,8 @@
             <img src="http://post.phinf.naver.net/MjAxOTA0MjVfMTMz/MDAxNTU2MTYwNTEyNDQy._Aq-ua0JsNEzqq2zpXU2haP7PFUijQuX0Yq7bTtbby8g.o-a6V17SWbCwTQKmf6HGq3HQjmZhjYrg0IgYJ8zY4d0g.JPEG/Ig_3HUHxMQHT-Tma611zbB4RDbFo.jpg"
                 class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title name">에어팟을 팝니다<span class="price">가격:<span class="price_color">150,000</span>원/개</span></h5>
+                <h5 class="card-title name">에어팟을 팝니다<span class="price">가격:<span
+                            class="price_color">150,000</span>원/개</span></h5>
                 <p class="card-text content">에어팟은 최고의 음질을 자랑하고, 줄 없는 세상을 구현합니다. 어서 빨리 시대에 뒤쳐지지말고 구매하세요.</p>
 
                 <div class="input-group mb-3">
@@ -60,7 +60,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">주문자 이름</span>
                     </div>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                        aria-describedby="inputGroup-sizing-default" id="name">
                 </div>
 
                 <div class="input-group mb-3">
@@ -68,7 +68,7 @@
                         <label class="input-group-text" for="inputGroupSelect01">수량</label>
                     </div>
                     <select class="custom-select" id="inputGroupSelect01">
-                        <option selected>-- 수량을 선택하세요 --</option>
+                        <option value='' selected>-- 수량을 선택하세요 --</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -81,7 +81,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
                     </div>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                        aria-describedby="inputGroup-sizing-default" id="address">
                 </div>
 
                 <div class="input-group mb-3">
@@ -89,10 +89,10 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
                     </div>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                        aria-describedby="inputGroup-sizing-default" id="phonenumber">
                 </div>
                 <div class="middle">
-                    <a href="#" class="btn btn-primary">주문하기</a>
+                    <a href="#" class="btn btn-primary" id="purchase" onclick="purchase()">주문하기</a>
                 </div>
             </div>
         </div>
@@ -108,6 +108,34 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     </div>
+    <script>
+
+        function purchase() {
+            let name = $('#name').val();
+            let number = $('#inputGroupSelect01 option:selected').val();
+            let address = $('#address').val();
+            let phoneNumber = $('#phonenumber').val();
+            if (name !== '' && number !== '' && address !== '' && phoneNumber !== '') {
+                if (phoneNumber.length === 13) {
+                    alert('주문이 완료되었습니다');
+                } else if (phoneNumber.length !== 13) {
+                    alert('휴대폰번호 입력 형식이 틀립니다.\n010-0000-0000으로 입력해주세요.');
+                }
+            } else if (name === '') {
+                alert('이름을 입력해주세요.');
+                $('#name').focus();
+            } else if (number === '') {
+                alert('수량을 입력해주세요.');
+                $('#inputGroupSelect01').focus();
+            } else if (address === '') {
+                alert('주소를 입력해주세요.');
+                $('#address').focus();
+            } else if (phoneNumber === '') {
+                alert('휴대폰번호를 입력해주세요.')
+                $('#phonenumber').focus();
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -15,19 +15,17 @@
 
         h6.warning {
             /* 여기도 코드가 필요하겠죠? 빨간색 글씨 */
-            color: red;
         }
     </style>
 
     <script>
         function q1() {
-            if ($('#input-q1').val() === '') {
+            let value = $('#input-q1').val();
+            if (value === '') {
                 alert('입력하세요!');
             } else {
-                alert($('#input-q1').val())
+                alert(value);
             }
-
-
             // 1. input-q1의 입력값을 가져온다.
             // 2. 만약 입력값이 빈칸이면 if(입력값=='')
             // 3. alert('입력하세요!') 띄우기
@@ -36,43 +34,37 @@
 
         function q5() {
 
-            if ($('#input-q5').val().indexOf('@') !== -1) {
-                let domain = $('#input-q5').val().split('@')[1].split('.')[0];
+            let value = $('#input-q5').val();
+            if (value.indexOf('@') < 0) {
+                $('#domain-q5').hide();
+                $('#warning-q5').show();
+                $('#warning-q5').css('color', 'red');
+            } else {
+                let domain = value.split('@')[1].split('.')[0];
                 $('#domain-q5').text(domain);
                 $('#domain-q5').show();
                 $('#warning-q5').hide();
-            } else {
-                $('#domain-q5').hide();
-                $('#warning-q5').show();
             }
-
+            // 1. input-q5 값을 가져온다.
+            // 2. 만약 가져온 값에 @가 있으면 (indexOf를 이용하기 - 찾아보자!)
+            // 3. info.spartacoding@gmail.com -> gmail 만 추출해서
+            // 4. domain-q5의 텍스트를 gmail로 바꿔준다. (jQuery의 $(...).text('문자열')을 이용하면 굿!)
+            // 5. domain-q5는 보이게하고, warning-q5는 안보이게 한다. (show / hide)
+            // 6. 가져온 값에 @가 없으면
+            // 7. warning-q5의 warning 클래스를 이용해서, 글씨를 빨간색으로 바꾼다. (head 안의 <style>~</style>부분을 보세요!)
+            // 8. warning-q5는 보이게하고, domain-q5는 안보이게 한다.
         }
 
-
-        // 1. input-q5 값을 가져온다.
-        // 2. 만약 가져온 값에 @가 있으면 (indexOf를 이용하기 - 찾아보자!)
-        // 3. info.spartacoding@gmail.com -> gmail 만 추출해서
-        // 4. domain-q5의 텍스트를 gmail로 바꿔준다. (jQuery의 $(...).text('문자열')을 이용하면 굿!)
-        // 5. domain-q5는 보이게하고, warning-q5는 안보이게 한다. (show / hide)
-        // 6. 가져온 값에 @가 없으면
-        // 7. warning-q5의 warning 클래스를 이용해서, 글씨를 빨간색으로 바꾼다. (head 안의 <style>~</style>부분을 보세요!)
-        // 8. warning-q5는 보이게하고, domain-q5는 안보이게 한다.
-
-
         function q7() {
-            let name = $('#input-q7').val();
-            let temp_html = '<li>' + name + '</li>';
-            $('#names-q7').append(temp_html);
-
+            let list =  '<li>' + $('#input-q7').val() + '</li>';
+            $('#names-q7').append(list);
             // 1. input-q7 값을 가져온다.
             // 2. 가져온 값을 이용해 names-q7에 붙일 태그를 만든다. (let temp_html = '<li>임꺽정</li>')
             // 3. 만들어둔 temp_html을 names-q7에 붙인다.(jQuery의 $('...').append(temp_html)을 이용하면 굿!)
         }
 
         function q7_remove() {
-
             $('#names-q7').empty();
-
             // 1. names-q7의 내부 태그를 모두 비운다.(jQuery의 $('....').empty()를 이용하면 굿!)
         }
 
