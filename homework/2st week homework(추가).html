@@ -137,28 +137,37 @@
             let address = $('#address').val();
             let phoneNumber = $('#phonenumber').val();
             if (name !== '' && number !== '' && address !== '' && phoneNumber !== '') {
-                $('.text-none').hide();
                 if (phoneNumber.length === 13) {
                     alert('주문이 완료되었습니다');
                 } else if (phoneNumber.length !== 13) {
                     alert('휴대폰번호 입력 형식이 틀립니다.\n010-0000-0000으로 입력해주세요.');
                 }
-
-            } else if (name === '') {
+            } 
+            if (name === '') {
                 $('#noName').show();
                 $('#name').focus();
-            } else if (number === '' && name !== '') {
-                $('#noName').hide();
+            } else if (name !== '') {
+                $('#noName').hide();             
+            }
+            
+            if (number === '') {
                 $('#noNumber').show();
                 $('#inputGroupSelect01').focus();
-            } else if (address === '' && number !== '') {
-                $('#noNumber').hide();
+            } else if (number !== '') {
+                $('#noNumber').hide();             
+            }
+
+            if (address === '') {
                 $('#noAddress').show();
                 $('#address').focus();
-            } else if (phoneNumber === '' && address !== '')  {
-                $('#noAddress').hide();
+            } else if (address !== '') {
+                $('#noAddress').hide(); 
+            }
+            if (phoneNumber === '') {
                 $('#noPhoneNumber').show();
                 $('#phonenumber').focus();
+            } else if (phoneNumber !== '' && phoneNumber.length === 13) {
+                $('#noPhoneNumber').hide(); 
             }
         }
     </script>
