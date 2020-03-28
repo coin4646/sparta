@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery 연습하고 가기!</title>
+
+    <!-- JQuery를 import 합니다 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style type="text/css">
+        div.question-box {
+            margin: 10px 0 20px 0;
+        }
+    </style>
+
+    <script>
+        function q1() {
+            $('#names-q1').html('');
+            let guName = $('#gu-name').val()
+            if (guName === '' || guName.length !== 3) {
+                alert('구이름을 넣어주세요')
+                $('#gu-name').focus()
+            }
+            $.ajax({
+                type: "GET",
+                url: "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByAddr/json?address=서울특별시%20" + guName,
+                data: {},
+                success: function (response) {
+                    console.log(response);
+                    let lists = response["stores"];
+                    for (let i = 0; i < lists.length; i++) {
+                        let name = lists[i]['name'];
+                        let remain = lists[i]['remain_stat'];
+                        if (remain !== 'empty') {
+                            if (remain === 'break') {
+                                remain = '쉬는 시간';
+                            } else if (remain === 'few') {
+                                remain = '거의 없음';
+                            } else if (remain === 'some') {
+                                remain = '조금 있음';
+                            } else if (remain === 'plenty') {
+                                remain = '많음';
+                            } 
+                            $('#names-q1').append('<li>' + name + ' : ' + remain + '</li>');
+                        }
+                            
+                    }
+                }
+            })
+
+        }
+
+
+    </script>
+    <style>
+        #gu-name {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JQuery+Ajax의 조합을 연습하자!</h1>
+
+    <hr />
+
+    <div class="question-box">
+        <h2>1. 서울시 OpenAPI(실시간 미세먼지 상태)를 이용하기</h2>
+        <p>모든 구의 미세먼지를 표기해주세요</p>
+        <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
+        <input id="gu-name" type="text" name="my_name" size="20" placeholder="구 이름을 넣으세요">
+        <button onclick="q1()">업데이트</button>
+        <ul id="names-q1">
+
+        </ul>
+    </div>
+</body>
+
+</html>

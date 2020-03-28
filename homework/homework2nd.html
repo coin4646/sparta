@@ -42,6 +42,11 @@
         .content {
             font-size: 23px;
         }
+
+        .text-none {
+            color: red;
+            display: none;
+        }
     </style>
 </head>
 
@@ -62,6 +67,9 @@
                     <input type="text" class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default" id="name">
                 </div>
+                <div class="text-none" id="noName">
+                    <p>이름을 입력해주세요</p>
+                </div>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -75,6 +83,10 @@
                     </select>
                 </div>
 
+                <div class="text-none" id="noNumber">
+                    <p>수량을 입력해주세요</p>
+                </div>
+
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -84,6 +96,10 @@
                         aria-describedby="inputGroup-sizing-default" id="address">
                 </div>
 
+                <div class="text-none" id="noAddress">
+                    <p>주소을 입력해주세요</p>
+                </div>
+
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
@@ -91,6 +107,11 @@
                     <input type="text" class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default" id="phonenumber">
                 </div>
+
+                <div class="text-none" id="noPhoneNumber">
+                    <p>휴대폰번호를 입력해주세요</p>
+                </div>
+
                 <div class="middle">
                     <a href="#" class="btn btn-primary" id="purchase" onclick="purchase()">주문하기</a>
                 </div>
@@ -121,21 +142,37 @@
                 } else if (phoneNumber.length !== 13) {
                     alert('휴대폰번호 입력 형식이 틀립니다.\n010-0000-0000으로 입력해주세요.');
                 }
-            } else if (name === '') {
-                alert('이름을 입력해주세요.');
+            } 
+            if (name === '') {
+                $('#noName').show();
                 $('#name').focus();
-            } else if (number === '') {
-                alert('수량을 입력해주세요.');
+            } else if (name !== '') {
+                $('#noName').hide();             
+            }
+            
+            if (number === '') {
+                $('#noNumber').show();
                 $('#inputGroupSelect01').focus();
-            } else if (address === '') {
-                alert('주소를 입력해주세요.');
+            } else if (number !== '') {
+                $('#noNumber').hide();             
+            }
+
+            if (address === '') {
+                $('#noAddress').show();
                 $('#address').focus();
-            } else if (phoneNumber === '') {
-                alert('휴대폰번호를 입력해주세요.')
+            } else if (address !== '') {
+                $('#noAddress').hide(); 
+            }
+            if (phoneNumber === '') {
+                $('#noPhoneNumber').show();
                 $('#phonenumber').focus();
+            } else if (phoneNumber !== '' && phoneNumber.length === 13) {
+                $('#noPhoneNumber').hide(); 
             }
         }
+
     </script>
+    
 </body>
 
 </html>
