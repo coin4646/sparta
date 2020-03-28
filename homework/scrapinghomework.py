@@ -11,9 +11,11 @@ soup = BeautifulSoup(data.text, 'html.parser')
 
 songs = soup.select('#body-content > div.newest-list > div > table > tbody > tr')
 
+
 for song in songs:
-    rank = song.select_one('td.number')
-    title = song.select_one('td.info > a.title.ellipsis')
+    rank = song.select_one('td.number').text.split('\n')[0]
+    title = song.select_one('td.info > a.title.ellipsis').text.strip()
     singer = song.select_one('td.info > a.artist.ellipsis')
     if title is not None:
-        print (rank.text, title.text, singer.text)
+        print(rank, title, singer.text)
+
