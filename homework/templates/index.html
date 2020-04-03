@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+
+
+    <title>Hello, world!</title>
+    <style>
+        body {
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        .wrap {
+            width: 500px;
+            margin: 30px auto 0px auto;
+        }
+
+        .price {
+            font-size: 23px;
+            margin-left: 10px;
+        }
+
+        .price_color {
+            color: red;
+        }
+
+        .middle {
+            text-align: center;
+        }
+
+        .name {
+            font-size: 60px;
+        }
+
+
+        .content {
+            font-size: 23px;
+        }
+
+        .text-none {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="card">
+            <img src="http://post.phinf.naver.net/MjAxOTA0MjVfMTMz/MDAxNTU2MTYwNTEyNDQy._Aq-ua0JsNEzqq2zpXU2haP7PFUijQuX0Yq7bTtbby8g.o-a6V17SWbCwTQKmf6HGq3HQjmZhjYrg0IgYJ8zY4d0g.JPEG/Ig_3HUHxMQHT-Tma611zbB4RDbFo.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title name">에어팟을 팝니다<span class="price">가격:<span
+                            class="price_color">150,000</span>원/개</span></h5>
+                <p class="card-text content">에어팟은 최고의 음질을 자랑하고, 줄 없는 세상을 구현합니다. 어서 빨리 시대에 뒤쳐지지말고 구매하세요.</p>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">주문자 이름</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" id="name">
+                </div>
+                <div class="text-none" id="noName">
+                    <p>이름을 입력해주세요</p>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">수량</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option value='' selected>-- 수량을 선택하세요 --</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+
+                <div class="text-none" id="noNumber">
+                    <p>수량을 입력해주세요</p>
+                </div>
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" id="address">
+                </div>
+
+                <div class="text-none" id="noAddress">
+                    <p>주소을 입력해주세요</p>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" id="phonenumber">
+                </div>
+
+                <div class="text-none" id="noPhoneNumber">
+                    <p>휴대폰번호를 입력해주세요</p>
+                </div>
+
+                <div class="middle">
+                    <a href="#" class="btn btn-primary" id="purchase" onclick="purchase()">주문하기</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="orders">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">주문자 이름</th>
+                        <th scope="col">수량</th>
+                        <th scope="col">주소</th>
+                        <th scope="col">전화번호</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-box">
+                    <tr>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+
+
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#orders-box').html('');
+            listing();
+        });
+
+        function purchase() {
+            let name = $('#name').val();
+            let number = $('#inputGroupSelect01 option:selected').val();
+            let address = $('#address').val();
+            let phoneNumber = $('#phonenumber').val();
+            if (name !== '' && number !== '' && address !== '' && phoneNumber !== '') {
+                if (phoneNumber.length === 13) {
+                    alert('주문이 완료되었습니다');
+                    $('#name').val('');
+                    $('#address').val('');
+                    $('#phonenumber').val('');
+                } else if (phoneNumber.length !== 13) {
+                    alert('휴대폰번호 입력 형식이 틀립니다.\n010-0000-0000으로 입력해주세요.');
+                }
+            }
+            if (name === '') {
+                $('#noName').show();
+                $('#name').focus();
+            } else if (name !== '') {
+                $('#noName').hide();
+            }
+
+            if (number === '') {
+                $('#noNumber').show();
+                $('#inputGroupSelect01').focus();
+            } else if (number !== '') {
+                $('#noNumber').hide();
+            }
+
+            if (address === '') {
+                $('#noAddress').show();
+                $('#address').focus();
+            } else if (address !== '') {
+                $('#noAddress').hide();
+            }
+            if (phoneNumber === '') {
+                $('#noPhoneNumber').show();
+                $('#phonenumber').focus();
+            } else if (phoneNumber !== '' && phoneNumber.length === 13) {
+                $('#noPhoneNumber').hide();
+            }
+            // 3. POST /reviews 에 저장을 요청합니다.
+            $.ajax({
+                type: 'POST', // 타입을 작성합니다.
+                url: '/purchases', // url을 작성합니다.
+                data: {
+                    name_give: name,
+                    number_give: number,
+                    address_give: address,
+                    phoneNumber_give: phoneNumber
+                }, // data를 작성합니다. },
+                success: function (response) {
+                    if (response['result'] == 'success') {
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+
+        function listing() {
+            // 1. 리뷰 목록을 서버에 요청하기
+            // 2. 요청 성공 여부 확인하기
+            // 3. 요청 성공했을 때 리뷰를 올바르게 화면에 나타내기
+            $.ajax({
+                type: "GET",
+                url: "/purchases",
+                data: {},
+                success: function (response) {
+                    if (response['result'] == 'success') {
+                        let list = response['purchases'];
+                        for (let i =0; i < list.length; i++) {
+                            let item = list[i];
+                            make_card(item['name'], item['number'], item['address'], item['phoneNumber'])
+                        }
+                        // 2. 성공했을 때 리뷰를 올바르게 화면에 나타내기
+                    } else {
+                        alert('리뷰를 받아오지 못했습니다');
+                    }
+                }
+            });
+        }
+
+        function make_card(name, number, address, phoneNumber) {
+            let temp_html = '<tr>\
+                                <td>'+ name + '</td>\
+                                <td>'+ number + '</td>\
+                                <td>'+ address + '</td>\
+                                <td>'+ phoneNumber + '</td>\
+                            </tr>';
+            $('#orders-box').append(temp_html);
+        }
+
+    </script>
+
+</body>
+
+</html>
